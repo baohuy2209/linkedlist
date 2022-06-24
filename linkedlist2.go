@@ -39,6 +39,7 @@ func insert(list *Node, data int, position){
 	else{
 		var pos int 
 		pos = 0 
+		var pre *Node
 		pre = nil 
 		for pos < position{
 			pos = pos + 1 
@@ -52,12 +53,14 @@ func insert(list *Node, data int, position){
 }
 
 func remove(list *Node, data int){
+	var cur *Node
 	cur = list 
+	var pre *Node 
 	pre = nil 
 	var found bool
 	found = false 
-	for list != nil && !found{
-		if (list.value == data){
+	for cur != nil && !found{
+		if (cur.value == data){
 			found = true 
 		}else{
 			pre = cur 
@@ -81,7 +84,10 @@ func pop(list *Node, position int){
 		err := errors.New("Invalid")
 		fmt.Println(err)
 	}else{
+
+		var cur *Node
 		cur = list
+		var pre *Node
 		pre = nil 
 		for pos < position{
 			pos = pos + 1
@@ -96,6 +102,7 @@ func pop(list *Node, position int){
 }
 
 func size(list *Node) int{
+	var cur *Node 
 	cur = list 
 	var size int 
 	size = 0 
@@ -107,26 +114,30 @@ func size(list *Node) int{
 }
 
 func search(list *Node, item int) bool{
-	if (list == nil){
+	var cur *Node 
+	cur = list 
+	if (cur == nil){
 		fmt.Println("Not found .")
 	}
 	var ck bool 
 	ck = false 
-	for list != nil &&  !ck{
-		if (list.value == item){
+	for cur != nil &&  !ck{
+		if (cur.value == item){
 			ck = true 
 		}else{
-			list = list.next
+			cur = cur.next
 		}
 	}
 	return ck 
 }
 
 func checkempty(list *Node) bool{
-	return list == nil 
+	var cur *Node 
+	return cur == nil 
 }
 
 func searchindex(list *Node, item int) {
+	var cur *Node
 	cur = list 
 	var found bool 
 	found = false
@@ -148,8 +159,10 @@ func searchindex(list *Node, item int) {
 
 
 func printlist(list *Node){
-	for list != nil {
-		fmt.Println(list)
-		list = list.next 
+	var cur *Node 
+	cur  = list 
+	for cur != nil {
+		fmt.Println(cur)
+		cur = cur.next 
 	}
 }
