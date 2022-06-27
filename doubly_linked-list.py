@@ -163,7 +163,8 @@ if __name__ == "__main__":
     print("11. Searching index of value in list .")
     print("12. Searching value in doubly linked list .")
     print("13. Update .")
-    print("14. Exit .")
+    print("14. Get size of doubly linked list . .")
+    print("15. Exit")
     list = Linkedlist()
     ck = True
     while(ck):
@@ -204,5 +205,7 @@ if __name__ == "__main__":
             pos = int(input("Position which need update value ."))
             list.update()
         elif choice == 14:
+            print(list.getsize())
+        elif choice == 15:
             ck = False
 
