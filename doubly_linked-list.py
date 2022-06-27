@@ -25,7 +25,7 @@ class Node:
 
 class Linkedlist:
     def __init__(self):
-        self.head = None
+        self.head = Node(0)
 
     def is_empty(self):
         check = False
@@ -54,7 +54,7 @@ class Linkedlist:
             current = current.getnext()
         new_node = Node(value)
         current.setnext(new_node)
-        new_node.getprev(current)
+        new_node.setprev(current)
 
     def insert_at_pos(self, value: int, position: int):
         current = self.head
@@ -163,3 +163,46 @@ if __name__ == "__main__":
     print("11. Searching index of value in list .")
     print("12. Searching value in doubly linked list .")
     print("13. Update .")
+    print("14. Exit .")
+    list = Linkedlist()
+    ck = True
+    while(ck):
+        choice = int(input("Enter the choice :"))
+        if choice == 1:
+            val = int(input("Enter the value to insert : "))
+            list.insert_at_begin(val)
+        elif choice == 2:
+            val = int(input("Enter the value to insert : "))
+            list.insert_at_end(val)
+        elif choice == 3:
+            val = int(input("Enter the the value to insert : "))
+            pos = int(input("Enter the position :"))
+            list.insert_at_pos(val,pos)
+        elif choice == 4:
+            list.delete_at_begin()
+        elif choice == 5:
+            list.delete_at_end()
+        elif choice == 6:
+            pos = int(input("Enter specify position to delete ."))
+            list.delete_at_pos(pos)
+        elif choice == 7:
+            list.traverse_begin()
+        elif choice == 8:
+            list.traverse_end()
+        elif choice == 9:
+            list.display()
+        elif choice == 10:
+            print("Empty status : ",list.is_empty())
+        elif choice == 11:
+            value = int((input("Enter the value which want to search index : ")))
+            print("Index of value in doubly linked list : ",list.search_by_index(value))
+        elif choice == 12:
+            value = int((input("Enter the value which want to search index : ")))
+            print(list.search_by_value(value))
+        elif choice == 13:
+            value = int(input("Value to update :"))
+            pos = int(input("Position which need update value ."))
+            list.update()
+        elif choice == 14:
+            ck = False
+
