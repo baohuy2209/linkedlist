@@ -18,7 +18,7 @@ class singly_list {
 		int getSize();
 		void insert_begin(); 
 		void insert_end(); 
-		void insert_pos()
+		void insert_pos();
 		void delete_pos(); 
 		void sort(); 
 		void search();
@@ -27,11 +27,11 @@ class singly_list {
 		void display();
 		
 		int input_pos(){
-			check = false ; 
+			bool check = false ; 
 			int pos ;
 			while(!check){ 
 				cin>>pos;
-				if(pos <= this.getSize() && pos => 1){
+				if(pos <= getSize() && pos >= 1){
 					check = true;
 				}else{
 					cout<<"Wrong Entry !!! Invalid"<<endl;
@@ -116,6 +116,7 @@ int main(){
 				break; 
 		}
 	}
+	return 0;
 }
 node* singly_list::create_node(int value){
 	struct node *temp; 
@@ -126,7 +127,7 @@ node* singly_list::create_node(int value){
 	}else{
 		temp->info = value;
 		temp->next = NULL ; 
-		return temp 
+		return temp ;
 	}
 }
 
@@ -182,15 +183,15 @@ void singly_list::insert_end(){
 void singly_list::insert_pos(){
 	int value,position;
 	cout<<"Enter the position to insert node : "<<endl;
-	position = this.input_pos();
+	position = input_pos();
 	cout<<"Enter the value to create node which is insert at "<<position<<" : "<<endl; 
 	cin>>value;
 	
-	struct *temp, *p; 
+	struct node *temp, *p; 
 	p = start; 
 	temp = create_node(value) ; 
 	
-	if(pos == 1){
+	if(position == 1){
 		if(start == NULL){
 			start = temp ; 
 			start->next = NULL;
@@ -201,7 +202,7 @@ void singly_list::insert_pos(){
 			return;
 		}
 	}
-	if(pos == getSize()){
+	if(position == getSize()){
 		if(start == NULL){
 			start = temp;
 			start->next = NULL; 
@@ -215,8 +216,8 @@ void singly_list::insert_pos(){
 			return;
 		}
 	}
-	if(pos > 1 && pos < this.getSize()){
-		struct *ptr;
+	if(position > 1 && position < getSize()){
+		struct node *ptr;
 		int pos = 0; 
 		while(pos < position){
 			pos = pos + 1; 
@@ -231,7 +232,7 @@ void singly_list::insert_pos(){
 void singly_list::delete_pos(){
 	int position;
 	cout<<"Enter the position to delete node : "<<endl;
-	position = this.input_pos();
+	position = input_pos();
 	if(start == NULL){
 		cout<<"This linked list is empty. "<<endl;
 	}else{
@@ -242,7 +243,7 @@ void singly_list::delete_pos(){
 				start = NULL;
 			}
 			else{
-				struct *nptr, *ptr; 
+				struct node *nptr, *ptr; 
 				nptr = start; 
 				ptr = NULL;
 				int pos = 0; 
